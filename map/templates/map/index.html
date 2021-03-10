@@ -9,9 +9,11 @@
   <p>How's it going, {{ user.username }}?</p>
 
   {% else %}
-  <h1>My Google Login Project</h1>
+  <h1>Welcome to the campus map.</h1>
   <a href="{% provider_login_url 'google' %}">Login with Google</a>
   {% endif %}
-
+<button type="button" class="btn btn-primary">
+<a href="{% url 'logout' %}"> Sign out </a>
+</button>
   </body>
 </html>
