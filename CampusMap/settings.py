@@ -135,7 +135,7 @@ STATIC_URL = '/static/'
 
 SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
-
+LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
