@@ -8,7 +8,7 @@ deploy:
   provider: heroku
   api_key:
     secure: F4r4Eo1TTMCa1o6TRzQY1NKLqU/TT8xAf57k0TvihLSrWLvUkpJgpS8M6JyoVBW5Ld0RKeSop7UoRn7K5hajd20hZRiNmKUnz5xtxF0Kfd60mBtUtht4DR6fN66n8h5jrzcyAzK5vBAn5UPMC71uxUdVJJALBOcaIu79rejqGTnHOIm3EUakALUd+mTaGPYVFFKeQC+2fRpTPYdYGNcbzClE0l5BCRHmYwXRDzioS4uYUnlQmg9K6IycJtsXkQaHVt2NnE0BWFjLW6MdHJaWpNhIqIA1XAHDkTmjfXGOxPChEYYT9kPYH0O8jW+bpb+9Yd/mKG8OkzsmB9ysrqFVOxiSfGtPRj28DD4e/pDOBtVyDYgSB5XELGI/GlpVxDNCu1PwfbCrodMROiDq7nh//p/dI6m+qAJUgI6Gc3msz7cjnIBaPkqhD1uDlgh/VMMdDP8qLHkRbH/TbIayGnXKtvYW9fDBSedke60G7burZTILtuK6mgEQwqUdgWXNfUsQJk18MeJHAXSjjhXDgji1GB1V2WyeUm68af2SWPUZD4Jp/B3+TE4qubJA0zWW1qMrgCdAL73DVrf+hvc5g59z3IVg7PIuE5ofrBhMxGob2d70VFF0/ZOwBzb7F0cgA7SngknxVnUkfHfGK8pcxMSVWaPhXxn1msN+N8tGlbjd54s=
-  app: project-b-04
+  app: uvacampusmap
   on:
     repo: uva-cs3240-s21/project-b-04
     branch: main
