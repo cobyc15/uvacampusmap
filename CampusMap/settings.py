@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     'bootstrap4',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'CampusMap.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')], #Added in DIRS 3/22/2021, if anything breaks this can be why.
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,7 +143,7 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 
 SITE_ID = 2
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/maps/template/'
 LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

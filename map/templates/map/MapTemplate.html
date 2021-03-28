@@ -1,0 +1,38 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive maps for Django web apps</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+  </head>
+  <body>
+   <h1>Map time!</h1>
+   <center>
+   <div id='map' style='width: 800px; height: 700px;'></div>
+ </center>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiemVsa25pdGUiLCJhIjoiY2ttczN5cno3MGR6NjJ2dGhrMHRrZHJwcSJ9.HeNWvfWIon6BGcPnjhjUqw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [-96, 37.8],
+     zoom: 12
+});
+// Add geolocate control to the map.
+map.addControl(
+new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: true
+},
+trackUserLocation: true
+})
+);
+</script>
+  </body>
+</html>
+
+{% endblock %}

@@ -2,4 +2,7 @@ Django
 django-heroku
 gunicorn
 django-allauth
+branca
+jinja2
+requests
 bootstrap4

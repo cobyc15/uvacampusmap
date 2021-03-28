@@ -20,8 +20,10 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name= "map/index.html")),
+    #path('', include('map.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path("", include('django.contrib.auth.urls')),
+    path('', include('django.contrib.auth.urls')),
+    path('map/', include('map.urls')),
     #path('accounts/logout', include('allauth.urls')),
 ]
