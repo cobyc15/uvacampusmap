@@ -1,27 +1,43 @@
 {% extends "./base.html" %}
 
 {% block content %}
-  {% load static %}
+{% load static %}
 
-  {% load socialaccount %}
-  <h1> Welcome to Campus Map! </h1>
+{% load socialaccount %}
+<center>
+
+
+  <h1 class="display-4"> Welcome to Campus Map! </h1>
+
+  <img src="https://i.pinimg.com/originals/e9/ab/70/e9ab705749c3d816b9241c112564bd4d.jpg" class="img-fluid"
+    alt="UVA's rotunda" width="800" height="500">
 
   <div class="container">
-    {% if user.is_authenticated %}
-      <p>How's it going, {{ user.username }}?</p>
+    <div class="card">
+      <div class="card-body">
+        {% if user.is_authenticated %}
+        <p>How's it going, {{ user.username }}?</p>
 
-    {% else %}
-      <h2>Please sign in.</h2>
-      <a href="{% provider_login_url 'google' %}">Login with Google</a>
-    {% endif %}
+        <div class="card-footer">
+          <button type="button" class="btn btn-dark">
+            <a href="{% url 'logout' %}"> Sign out </a>
+          </button>
+        </div>
+
+        {% else %}
+        <h2 class="lead">Please sign in.</h2>
+        <a href="{% provider_login_url 'google' %}">Login with Google</a>
+        {% endif %}
+      </div>
+
+    </div>
+
   </div>
 
 
   <div class="container">
-    <button type="button" class="btn btn-primary">
-    <a href="{% url 'logout' %}"> Sign out </a>
-    </button>
-  </div>
 
+  </div>
+</center>
 
 {% endblock %}
