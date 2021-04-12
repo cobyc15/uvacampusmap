@@ -30,14 +30,14 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiYmRuNGVmIiwiYSI6ImNrbXVhNnUybzBoY3kyd28ycHRtYXNiNWwifQ.YzHAdcSZGaN1qP37urA7ew'; // replace this with your access token
     var map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/bdn4ef/ckn6t75lk0ncx17qqbhurgnl4', // replace this with your style URL
-      center: [-78.5080, 38.0336],
-      zoom: 12
+      style: 'mapbox://styles/bdn4ef/ckmubevv32zkx17pzbf9yovto', // replace this with your style URL
+      center: [-87.661557, 41.893748],
+      zoom: 10.7
     });
     // code from the next step will go here
     map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['uva-campus'] // replace this with the name of the layer
+    layers: ['chicago-parks'] // replace this with the name of the layer
   });
 
   if (!features.length) {
@@ -45,22 +45,10 @@
   }
 
   var feature = features[0];
-  var content;
-  if(feature.properties.title=="Mcleod Hall"){
-    content='<h3>' + feature.properties.title + '</h3><p>' + feature.properties.address + '</p>'+ '<img src="https://med.virginia.edu/mindfulness-center/wp-content/uploads/sites/306/2015/11/mcleod-hall.jpg" width="82" height="86">';
-  }
-  else if(feature.properties.title=="Olsson Hall"){
-    content='<h3>' + feature.properties.title + '</h3><p>' + feature.properties.address + '</p>'+ '<img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Olsson_Hall_University_of_Virginia_2007.jpg" width="82" height="86">';
-  }
-  else{
-    content='<h3>' + feature.properties.title + '</h3><p>' + feature.properties.address + '</p>';
-  }
- 
+
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-   
-    .setHTML(content)
-    
+    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
     .addTo(map);
 });
 map.addControl(
