@@ -1,3 +1,6 @@
+{% extends "./base.html" %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -16,26 +19,14 @@
 
       #map {
         position: absolute;
-        top: 0;
+        top: 5%;
         bottom: 0;
         width: 100%;
       }
 
 
 
-      /* #instructions {
-        position: absolute;
-        margin: 20px;
-        width: 25%;
-        top: 0;
-        bottom: 20%;
-        padding: 20px;
-        background-color: rgba(255, 255, 255, 0.9);
-        overflow-y: scroll;
-        font-family: sans-serif;
-        font-size: 0.8em;
-        line-height: 2em;
-      } */
+
 
       .duration {
         font-size: 2em;
@@ -243,3 +234,4 @@ map.on('load', function() {
 </script>
   </body>
 </html>
+{% endblock %}
