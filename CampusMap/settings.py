@@ -157,9 +157,6 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-# Activate Django-heroku
-django_heroku.settings(locals())
-
 # Activate Django-Heroku.
 try:
     # Configure Django App for Heroku.
