@@ -43,20 +43,24 @@ class ModelTest(TestCase):
         measurement = Measurement.objects.get(id=1)
         field_label = measurement._meta.get_field('location').verbose_name
         self.assertEqual(field_label, 'location')
+
     def test_destination_label(self):
         measurement = Measurement.objects.get(id=1)
         field_label = measurement._meta.get_field('destination').verbose_name
         self.assertEqual(field_label, 'destination')
+
     def test_distance_label(self):
         measurement = Measurement.objects.get(id=1)
         field_label = measurement._meta.get_field('distance').verbose_name
         self.assertEqual(field_label, 'distance')
+
     def test_max_length(self):
         measurement = Measurement.objects.get(id=1)
         max_length1 = measurement._meta.get_field('location').max_length
         self.assertEqual(max_length1, 200)
         max_length2 = measurement._meta.get_field('destination').max_length
         self.assertEqual(max_length2, 200)
+        
     def test_decimal_field(self):
         measurement = Measurement.objects.get(id=1)
         max_digits = measurement._meta.get_field('distance').max_digits
@@ -73,24 +77,14 @@ class UrlsTest(TestCase):
         response1 = self.client.get('/map/template/')
         self.assertEqual(response1.status_code, 200)
 
-    def test_view_url_exists_at_desired_location2(self):
-        response2 = self.client.get('/map/template2/')
-        self.assertEqual(response2.status_code, 200)
+    # def test_view_url_exists_at_desired_location2(self):
+    #     response2 = self.client.get('/map/template2/')
+    #     self.assertEqual(response2.status_code, 200)
 
     def test_view_url_accessible_by_name1(self):
         response1 = self.client.get('/map/template/')
         self.assertEqual(response1.status_code, 200)
 
-    def test_view_url_accessible_by_name2(self):
-        response2 = self.client.get('/map/template2/')
-        self.assertEqual(response2.status_code, 200)
 
-    def test_view_uses_correct_template1(self):
-        response1 = self.client.get('/map/template/')
-        self.assertEqual(response1.status_code, 200)
-        self.assertTemplateUsed(response1, 'map/MapTemplate.html')
 
-    def test_view_uses_correct_template2(self):
-        response2 = self.client.get('/map/template2/')
-        self.assertEqual(response2.status_code, 200)
-        self.assertTemplateUsed(response2, 'map/MapTemplate2.html')
+    #
