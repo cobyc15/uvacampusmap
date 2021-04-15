@@ -142,7 +142,7 @@ STATIC_URL = '/static/'
 
 SITE_ID = 1
 
-SITE_ID = 3 # change this for local use
+SITE_ID = 2
 LOGIN_REDIRECT_URL = '/map/'
 LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_PROVIDERS = {
