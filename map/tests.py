@@ -74,7 +74,7 @@ class UrlsTest(TestCase):
         Measurement.objects.create(location='Rotunda', destination='Rice Hall', distance=2.0)
 
     def test_view_url_exists_at_desired_location1(self):
-        response1 = self.client.get('/map/template/')
+        response1 = self.client.get('/map/')
         self.assertEqual(response1.status_code, 200)
 
     # def test_view_url_exists_at_desired_location2(self):
@@ -82,7 +82,7 @@ class UrlsTest(TestCase):
     #     self.assertEqual(response2.status_code, 200)
 
     def test_view_url_accessible_by_name1(self):
-        response1 = self.client.get('/map/template/')
+        response1 = self.client.get('/map/')
         self.assertEqual(response1.status_code, 200)
 
 
