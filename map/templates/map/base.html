@@ -12,11 +12,8 @@
     <!--link to CSS style sheet-->
     <link rel="stylesheet" type="text/css" href="{% static 'maps/nav-style.css' %}">
 
-    <!--<style>
-      moved style to .css static file
-    </style>-->
-
-    <title>UVA Grounds Guide</title>
+    
+    <title>{% block title %} UVA Grounds Guide {% endblock %}</title>
   </head>
 
   <body>

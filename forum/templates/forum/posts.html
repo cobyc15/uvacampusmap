@@ -1,0 +1,23 @@
+{% extends "forum/base.html" %}
+{% load socialaccount %}
+{% load static %}
+
+{% block body %}
+<center>
+    <h1 class=display-4>All Posts</h1>
+</center>
+
+{% if all_posts %}
+{% for post in all_posts %}
+<div class="container">
+    <h2><a href="/forum/{{ post.id }}/">{{ post.title }}</a></h2>
+    <p style='font-style: italic;'>Posted: {{post.pub_date}}
+        <br>{{post.detail|truncatewords:"200"}}</p>
+</div>
+    
+{% endfor %}
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}
+
+{% endblock %}

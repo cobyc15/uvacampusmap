@@ -1,0 +1,29 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+
+/*entire forum*/
+h2 {
+    font-family: Montserrat;
+}
+
+
+/*sidebar style*/
+.content-section {
+    font-family: Montserrat;
+}
+.content-section h3{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.btn-group a {
+    background-color: #E57200;
+    border: none;
+}
+.btn-group a:hover {
+    background-color: #232D4B;
+    border: none;
+}
+.list-group a {
+    letter-spacing: 2px;
+}
+
+/*button style*/
