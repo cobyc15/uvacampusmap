@@ -1,0 +1,23 @@
+{% extends "forum/base.html" %}
+
+{% block body %}
+
+{% load socialaccount %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<center>
+    <h1 class=display-4>{{post.title}}</h1>
+</center>
+
+<div class="container">
+    <p>Posted on {{post.pub_date}} by <!--figure out how to get user--></p>
+    {{post.detail}}
+
+</div>
+
+</html>
+
+{% endblock %}

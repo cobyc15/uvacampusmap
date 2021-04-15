@@ -1,0 +1,25 @@
+{% extends "forum/base.html" %}
+
+{% block body %}
+
+{% load socialaccount %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<center>
+    <h1 class=display-4>New Post</h1>
+</center>
+
+<!--working on making this look nicer-->
+<div class="container-fluid">
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+</html>
+
+{% endblock %}

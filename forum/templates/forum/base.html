@@ -1,0 +1,59 @@
+{% extends "map/base.html" %}
+
+{% load static %}
+{% load socialaccount %}
+
+{% block content %}
+
+<head>
+  <title>{% block title %}Map Forum{% endblock %}</title>
+  <!--CSS style sheet - work in progress-->
+  <link rel="stylesheet" type="text/css" href="{% static 'forum/style.css' %}">
+</head>
+
+{% if not user.is_authenticated %}
+<div class="alert alert-warning" role="alert">
+  You are not signed in. Please <a href="{% provider_login_url 'google' next='/forum' %}">login with Google</a> to make posts.
+</div>
+{% endif %}
+
+<div class="container">
+
+  <div class="row">
+      <div class="col-2">
+        <div class="content-section">
+          <center>
+          <h3>Navigation</h3>
+
+          <!--to do: add icons instead of words-->
+          <div class="btn-group">
+            <a type="button" class="btn btn-primary" href="/forum/" role="button">Home</a>
+            <a type="button" class="btn btn-primary" href="/forum/newpost/" role="button">New Post</a>
+          </div>
+          </center>
+
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">Announcements</a>
+            <a href="/forum/posts" class="list-group-item list-group-item-action">All Posts</a>
+            <a href="#" class="list-group-item list-group-item-action">Calendars</a>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-10">
+      <!--this is where forum content goes-->
+      {% block body %}
+      {% endblock %}
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+ 
+
+{% endblock %}

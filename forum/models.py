@@ -4,7 +4,7 @@ import datetime
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    forum_post = models.TextField()
+    detail = models.TextField()
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
