@@ -1,0 +1,75 @@
+{% extends "map/base.html" %}
+
+{% block content %}
+{% load static %}
+
+{% load socialaccount %}
+
+
+{% if user.is_authenticated %}
+<div class="container">
+  <div class="row">
+    <!--creating the sidebar profile page look-->
+    <div class="col-4">
+      <!--this is where we'll put personal information-->
+      <h1 class=display-1>{{user.username}}</h1>
+      
+    </div>
+
+    <div class="col-8">
+      <!--this is where we'll put user activity stuff-->
+      <div id="map">
+        <p class="lead">This is where map-related data will go</p>
+      </div>
+
+      <div id="forum">
+        <p class="lead">This is where forum-related data will go</p>
+      </div>
+
+      <div id="schedule">
+        <p class="lead">This is where schedule-related data will go</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--prompts login if user isn't already logged in-->
+{% else %}
+
+<!--trying to get a popup window-->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You must log in to view this page
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" href="{% provider_login_url 'google' next='/myprofile' %}" class="btn btn-primary">Sign in</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<center>
+<div class="container">
+  <div class="jumbotron">
+    <div class="container">
+      <h2 class="lead">Please sign in.</h2>
+      <a href="{% provider_login_url 'google' next='/myprofile' %}">Login with Google</a>
+    </div>
+  </div>
+  <div class="container">    
+</div>
+
+</center>
+
+{% endif %}
+
+{% endblock %}
