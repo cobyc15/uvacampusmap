@@ -1,0 +1,17 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+.navbar-custom{
+  background-color: #232D4B;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text{
+  color: #E57200;
+  font-family: Montserrat !important;
+  text-transform: uppercase;
+  font-size: 1.5rem
+}
+.navbar a{
+  color: white;
+  font-family: Montserrat !important;
+  letter-spacing: 2px;
+  font-size: .8rem;
+}
