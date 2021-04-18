@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
+from django.utils import timezone
 
 from .models import Post
 
@@ -32,9 +33,9 @@ class DetailView(generic.DetailView):
 
 def NewPostView(request):
     if request.method == "POST":
-        ttl=request.POST.get('title')
-        det=request.POST.get('detail')
-        pub_d = request.POST.get('pub_date')
+        ttl=request.POST.get('titleField')
+        det=request.POST.get('deep_text')
+        pub_d = timezone.now()
 
         if ttl and det: 
             t=Post(title=ttl, detail=det, pub_date = pub_d)
