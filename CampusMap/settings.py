@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'hh0ds3yxsytsle8ry0-4&vlwu%i5*$c=b2&asi6@^4nsj_hnul'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -162,6 +162,6 @@ SOCIALACCOUNT_PROVIDERS = {
 try:
     # Configure Django App for Heroku.
     import django_heroku
-    django_heroku.settings(locals())
+    django_heroku.settings(locals(), test_runner=False)
 except ImportError:
     found = False
