@@ -23,7 +23,21 @@ class DetailView(generic.DetailView):
     model = Post
     template_name = 'forum/detail.html'
 
-class NewPostView(generic.CreateView):
+'''class NewPostView(generic.CreateView):
     model = Post
     fields = ['title','detail']
     template_name = 'forum/newpost.html'
+    def get_success_url(self):
+            return render(request, 'polls/submit.html')'''
+
+def NewPostView(request):
+    if request.method == "POST":
+        ttl=request.POST.get('title')
+        det=request.POST.get('detail')
+        pub_d = request.POST.get('pub_date')
+
+        if ttl and det: 
+            t=Post(title=ttl, detail=det, pub_date = pub_d)
+            t.save()
+
+    return render(request, 'forum/newpost.html')
