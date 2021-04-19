@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'hh0ds3yxsytsle8ry0-4&vlwu%i5*$c=b2&asi6@^4nsj_hnul'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -143,6 +143,12 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 
 SITE_ID = 2
+
+SITE_ID = 3
+
+SITE_ID = 4
+
+SITE_ID = 5
 LOGIN_REDIRECT_URL = '/map/'
 LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_PROVIDERS = {
@@ -162,6 +168,6 @@ SOCIALACCOUNT_PROVIDERS = {
 try:
     # Configure Django App for Heroku.
     import django_heroku
-    django_heroku.settings(locals(), test_runner=False)
+    django_heroku.settings(locals(),test_runner=False)
 except ImportError:
     found = False
