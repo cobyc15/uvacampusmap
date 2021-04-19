@@ -118,6 +118,7 @@ AUTHENTICATION_BACKENDS = (
  'django.contrib.auth.backends.ModelBackend',
  'allauth.account.auth_backends.AuthenticationBackend',
  )
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -143,10 +144,11 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 SITE_ID = 2
 SITE_ID = 3
-SITE_ID = 4
-SITE_ID = 5
+# SITE_ID = 4
 LOGIN_REDIRECT_URL = '/map/'
 LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/myprofile/'
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -164,6 +166,6 @@ SOCIALACCOUNT_PROVIDERS = {
 try:
     # Configure Django App for Heroku.
     import django_heroku
-    django_heroku.settings(locals(), test_runner=False)
+    django_heroku.settings(locals(),test_runner=False)
 except ImportError:
     found = False
