@@ -144,6 +144,7 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 SITE_ID = 2
 SITE_ID = 3
+
 # SITE_ID = 4
 LOGIN_REDIRECT_URL = '/map/'
 LOGOUT_REDIRECT_URL = '/'
