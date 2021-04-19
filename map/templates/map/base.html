@@ -1,5 +1,4 @@
 {% load static %}
-  {% load socialaccount %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,7 +12,7 @@
     <!--link to CSS style sheet-->
     <link rel="stylesheet" type="text/css" href="{% static 'maps/nav-style.css' %}">
 
-
+    
     <title>{% block title %} UVA Grounds Guide {% endblock %}</title>
   </head>
 
@@ -41,33 +40,13 @@
       <div id="content", name="content", class="main">
           <div class="container">
               <div class="row justify-content-center">
-                <!-- {% if user.is_authenticated %} -->
                   {% block content %}
                   {% endblock %}
-
-                  <!-- {% else %}
-                  <center>
-                  <div class="container">
-                    <div class="jumbotron">
-                      <div class="container">
-                        <h2 class="lead">Please sign in.</h2>
-                      <a href="{% provider_login_url 'google' next='/map/' %}">Login with Google</a>
-                      </div>
-                    </div>
-                    <div class="container">
-                  </div>
-
-                  </center>
-
-                  {% endif %} -->
-
-
-                  </center>
               </div>
           </div>
-      </div>
+      </div>  
     </div>
-
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
