@@ -3,6 +3,7 @@
 {% block title %}
 Event
 {% endblock %}
+{% load socialaccount %}
 
 {% block content %}
 <div class="clearfix">
@@ -13,7 +14,10 @@ Event
   {% csrf_token %}
   <table class="form form-table">
     {{ form }}
-    <tr><td colspan="2"><button type="submit" class="btn btn-info right"> Submit </button></td></tr>
+    <tr>
+        <td colspan="2"><button type="submit" name="delete" class="btn btn-danger left">Delete</button></td>
+        <td colspan="2"><button type="submit" name="save" class="btn btn-info right">Save</button></td>
+    </tr>
   </table>
 </form>
 {% endblock %}

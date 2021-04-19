@@ -5,11 +5,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.views import generic
+from django.views.generic import DeleteView
 from django.utils.safestring import mark_safe
 from django.shortcuts import get_object_or_404
 from .models import *
 from .forms import EventForm
 from .utils import Calendar
+from django.urls import reverse_lazy
 
 def index(request):
     return HttpResponse('hello')
@@ -53,9 +55,13 @@ def event(request, event_id=None):
         instance = get_object_or_404(Event, pk=event_id)
     else:
         instance = Event()
-    
     form = EventForm(request.POST or None, instance=instance)
-    if request.POST and form.is_valid():
+    if request.POST and 'save' in request.POST and form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('schedule:schedule'))
+    # if user presses the delete button
+    if request.POST and 'delete' in request.POST:
+        if event_id:
+            Event.objects.filter(pk=event_id).delete()
+            return HttpResponseRedirect(reverse('schedule:schedule'))
     return render(request, 'schedule/event.html', {'form': form})
