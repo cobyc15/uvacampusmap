@@ -141,7 +141,7 @@ STATIC_URL = '/static/'
     os.path.join(BASE_DIR, 'static'),
 )"""
 
-SITE_ID = 5
+SITE_ID = 6
 
 LOGIN_REDIRECT_URL = '/map/'
 LOGOUT_REDIRECT_URL = '/'
