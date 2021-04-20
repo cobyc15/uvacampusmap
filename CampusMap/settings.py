@@ -16,6 +16,7 @@ from pathlib import Path
 from django.contrib import admin
 from django.urls import path,include
 from django.urls import reverse
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -140,21 +141,7 @@ STATIC_URL = '/static/'
     os.path.join(BASE_DIR, 'static'),
 )"""
 
-SITE_ID = 1
-
-SITE_ID = 2
-
-SITE_ID = 3
-
 SITE_ID = 4
-
-SITE_ID = 5
-
-SITE_ID = 6
-
-SITE_ID = 7
-
-SITE_ID = 8
 
 LOGIN_REDIRECT_URL = '/map/'
 LOGOUT_REDIRECT_URL = '/'
