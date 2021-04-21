@@ -12,6 +12,7 @@ from .models import *
 from .forms import EventForm
 from .utils import Calendar
 from django.urls import reverse_lazy
+from geopy.geocoders import GoogleV3
 
 def index(request):
     return HttpResponse('hello')
@@ -64,4 +65,12 @@ def event(request, event_id=None):
         if event_id:
             Event.objects.filter(pk=event_id).delete()
             return HttpResponseRedirect(reverse('schedule:schedule'))
+    if request.POST and 'view' in request.POST:
+        address = request.POST.get('address')
+        str(address)
+        print(address)
+        geolocator = GoogleV3(api_key="AIzaSyCXn97mV9a3N8YvGK5LJ7VrDN-Z_tInXus")
+        geolocator.geocode(address, timeout=10, exactly_one=False)
+        print('success')
+        return render(request, 'map/MapTemplate3.html', {'form': form})
     return render(request, 'schedule/event.html', {'form': form})
