@@ -29,6 +29,7 @@ SECRET_KEY = 'hh0ds3yxsytsle8ry0-4&vlwu%i5*$c=b2&asi6@^4nsj_hnul'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SESSION_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = []
 
@@ -141,6 +142,8 @@ STATIC_URL = '/static/'
 )"""
 
 SITE_ID = 2
+
+
 
 LOGIN_REDIRECT_URL = '/map/'
 LOGOUT_REDIRECT_URL = '/'
