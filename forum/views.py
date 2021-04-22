@@ -5,6 +5,7 @@ from django.utils import timezone
 from django import forms
 from .models import Post, Comment
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     latest_posts = Post.objects.order_by('-pub_date')[:5]
@@ -28,16 +29,21 @@ class DetailView(generic.DetailView):
     #comments = post.comments
 
 
-
+#@login_required(provi)
 class ProfileView(generic.ListView):
     model = Post
     context_object_name = 'my_posts'
     template_name = 'forum/MyProfile.html'
 
     def get_queryset(self):
+        qs = []
+        if self.request.user.is_authenticated:
+            qs = self.model.objects.filter(author=self.request.user)
+        else:
+            qs = []
         #list = Post.objects.filter(author=request.user)
         #return Post.objects.order_by('-pub_date')
-        return self.model.objects.filter(author=self.request.user)
+        return qs
 
 '''class NewPostView(generic.CreateView):
     model = Post
@@ -78,6 +84,7 @@ def NewPostView(request):
         form = ContactForm()
 
     return render(request, 'forum/newpost.html', {'form': form})
+
 def main(request):
     latest_posts = Post.objects.order_by('-pub_date')[:5]
     context={

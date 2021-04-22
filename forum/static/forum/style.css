@@ -1,14 +1,16 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
 
-/*entire forum*/
+/*entire website*/
 h2 {
     font-family: Montserrat;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
+.top-buffer { margin-top:20px; }
 
-/*sidebar style*/
+
+/*sidebar*/
 .content-section {
     font-family: Montserrat;
 }
