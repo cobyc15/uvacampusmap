@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
+from forum import views
+
 urlpatterns = [
     path('', TemplateView.as_view(template_name= "map/index.html")),
     path('', include('django.contrib.auth.urls')),
@@ -25,7 +27,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('map/', include('map.urls')),
     path('forum/', include('forum.urls')),
-    path('myprofile/', TemplateView.as_view(template_name= "forum/MyProfile.html")),
+    path('myprofile/', views.ProfileView.as_view(), name='profile'),
     path('myprofile/', include('schedule.urls'))
     #path('accounts/logout', include('allauth.urls')),
 ]

@@ -1,34 +1,48 @@
 {% extends "map/base.html" %}
 
 {% block content %}
-{% load static %}
 
+{% load static %}
 {% load socialaccount %}
 
 
 {% if user.is_authenticated %}
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <!--creating the sidebar profile page look-->
-    <div class="col-4">
+    <div class="col-5">
       <!--this is where we'll put personal information-->
-      <h1 class=display-1>{{user.username}}</h1>
+      <h1 class=display-1>hello, {{user.username}}</h1>
+      <ul class="list-group">
+        <li class="list-group-item">Name: {{user.get_full_name }}</li>
+        <li class="list-group-item">Email: {{user.email}}</li>
+        <li class="list-group-item">Joined: {{user.date_joined}}</li>
+        
+      </ul>
       
     </div>
 
-    <div class="col-8">
+    <div class="col-7">
       <!--this is where we'll put user activity stuff-->
       <div id="map">
-        <p class="lead">This is where map-related data will go</p>
+        
       </div>
 
-      <div id="forum">
-        <p class="lead">This is where forum-related data will go</p>
+      <div id="forum" class="top-buffer">
+        <h2>My Posts</h2>
+        <div>
+        {% if my_posts %}
+          {% for post in my_posts %}
+            <li><a href="/forum/{{ post.id }}/">{{ post.title }}</a> - posted {{post.pub_date}}</li>
+          {% endfor %}
+        {% else %}
+            <p>No posts yet!</p>
+        {% endif %}
+        </div>
       </div>
 
-      <div id="schedule">
-        <p class="lead">
-          <a href="{% url 'schedule:schedule' %}">View Schedule</a></p>
+      <div id="schedule" class="top-buffer">
+        <h2><a href="{% url 'schedule:schedule' %}">View Schedule</a></h2>
       </div>
 
     </div>
@@ -59,7 +73,7 @@
   </div>
 </div> -->
 <center>
-<div class="container">
+<div class="container top-buffer">
   <div class="jumbotron">
     <div class="container">
       <h2 class="lead">Please sign in.</h2>
