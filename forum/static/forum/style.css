@@ -3,6 +3,8 @@
 /*entire forum*/
 h2 {
     font-family: Montserrat;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 

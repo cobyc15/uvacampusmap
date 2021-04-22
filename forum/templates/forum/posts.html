@@ -11,7 +11,7 @@
 {% for post in all_posts %}
 <div class="container">
     <h2><a href="/forum/{{ post.id }}/">{{ post.title }}</a></h2>
-    <p style='font-style: italic;'>Posted: {{post.pub_date}}
+    <p style='font-style: italic;'>Posted: {{post.pub_date}} by {{post.author}}
         <br>{{post.detail|truncatewords:"200"}}</p>
 </div>
     
