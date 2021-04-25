@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'maps/nav-style.css' %}">
     <!--CSS style sheet - work in progress-->
   <link rel="stylesheet" type="text/css" href="{% static 'forum/style.css' %}">
-    
+
     <title>{% block title %} UVA Grounds Guide {% endblock %}</title>
   </head>
 
@@ -41,13 +41,14 @@
       <div id="content", name="content", class="main">
           <div class="container">
               <div class="row justify-content-center">
+              
                   {% block content %}
                   {% endblock %}
               </div>
           </div>
-      </div>  
+      </div>
     </div>
-    
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
