@@ -29,7 +29,7 @@ SECRET_KEY = 'hh0ds3yxsytsle8ry0-4&vlwu%i5*$c=b2&asi6@^4nsj_hnul'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = []
 
