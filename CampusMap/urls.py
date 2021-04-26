@@ -21,13 +21,13 @@ from django.contrib.auth.decorators import login_required
 from forum import views
 
 urlpatterns = [
-    path('',login_required(TemplateView.as_view(template_name= "map/index.html"))),
-    path('', login_required(include('django.contrib.auth.urls'))),
+    path('',TemplateView.as_view(template_name= "map/index.html")),
+    path('', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', login_required(include('allauth.urls'))),
-    path('map/', login_required(include('map.urls'))),
-    path('forum/', login_required(include('forum.urls'))),
-    path('myprofile/', login_required(views.ProfileView.as_view()), name='profile'),
-    path('myprofile/', login_required(include('schedule.urls'))),
+    path('accounts/', include('allauth.urls')),
+    path('map/', include('map.urls')),
+    path('forum/', include('forum.urls')),
+    path('myprofile/', views.ProfileView.as_view(), name='profile'),
+    path('myprofile/', include('schedule.urls')),
     #path('accounts/logout', include('allauth.urls')),
 ]
