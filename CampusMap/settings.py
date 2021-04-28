@@ -141,10 +141,13 @@ STATIC_URL = '/static/'
     os.path.join(BASE_DIR, 'static'),
 )"""
 
+#Heroku SITE_ID
 SITE_ID = 3
 
+#Rj's SITE_ID
+#SITE_ID = 4
 
-
+LOGIN_URL='/accounts/google/login'
 LOGIN_REDIRECT_URL = '/map/'
 LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_PROVIDERS = {
@@ -164,6 +167,9 @@ SOCIALACCOUNT_PROVIDERS = {
 try:
     # Configure Django App for Heroku.
     import django_heroku
-    django_heroku.settings(locals(),test_runner=False)
+    #for local
+    #django_heroku.settings(locals())
+    #for Heroku
+    django_heroku.settings(locals(), test_runner=False)
 except ImportError:
     found = False
