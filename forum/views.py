@@ -7,12 +7,14 @@ from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
     latest_posts = Post.objects.order_by('-pub_date')[:5]
     context={
         'latest_posts': latest_posts
     }
     return render(request, 'forum/index.html', context)
+
 
 class PostView(generic.ListView):
     model = Post
@@ -21,6 +23,7 @@ class PostView(generic.ListView):
 
     def get_queryset(self):
         return Post.objects.order_by('-pub_date')
+
 
 class DetailView(generic.DetailView):
     model = Post
@@ -68,6 +71,7 @@ class ContactForm(forms.Form):
     name = forms.CharField()
     message = forms.CharField(widget=forms.Textarea)
 
+@login_required
 def NewPostView(request):
     if request.method == "POST":
         ttl=request.POST.get('titleField')
@@ -84,6 +88,7 @@ def NewPostView(request):
         form = ContactForm()
 
     return render(request, 'forum/newpost.html', {'form': form})
+
 
 def main(request):
     latest_posts = Post.objects.order_by('-pub_date')[:5]
