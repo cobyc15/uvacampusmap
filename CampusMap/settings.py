@@ -143,7 +143,7 @@ STATIC_URL = '/static/'
 )"""
 
 #Heroku SITE_ID
-SITE_ID = 1
+SITE_ID = 2
 
 #Rj's SITE_ID
 #SITE_ID = 4
