@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import generic
 from django.utils import timezone
@@ -6,6 +6,7 @@ from django import forms
 from .models import Post, Comment
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
+
 
 @login_required
 def home(request):
@@ -47,6 +48,11 @@ class ProfileView(generic.ListView):
         #list = Post.objects.filter(author=request.user)
         #return Post.objects.order_by('-pub_date')
         return qs
+
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('forum:forum-home')
 
 '''class NewPostView(generic.CreateView):
     model = Post

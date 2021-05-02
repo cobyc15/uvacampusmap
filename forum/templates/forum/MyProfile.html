@@ -33,7 +33,7 @@
         <div>
         {% if my_posts %}
           {% for post in my_posts %}
-            <li><a href="/forum/{{ post.id }}/">{{ post.title }}</a> - posted {{post.pub_date}}</li>
+            <li><a href="/forum/{{ post.id }}/">{{ post.title }}</a> - posted {{post.pub_date}} <a class="btn btn-default" href="{% url 'forum:post_remove' pk=post.pk %}"><span class="btn btn-danger left">Delete</span></a></li>
           {% endfor %}
         {% else %}
             <p>No posts yet!</p>
