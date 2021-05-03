@@ -12,6 +12,7 @@ from .models import *
 from .forms import EventForm
 from .utils import Calendar
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return HttpResponse('hello')
@@ -19,6 +20,7 @@ def index(request):
 class CalendarView(generic.ListView):
     model = Event
     template_name = 'schedule/schedule.html'
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         d = get_date(self.request.GET.get('month', None))
@@ -26,7 +28,7 @@ class CalendarView(generic.ListView):
         context['next_month'] = next_month(d)
         schedule = Calendar(d.year, d.month)
         # Call the formatmonth method, which returns our calendar as a table
-        html_schedule = schedule.formatmonth(withyear=True)
+        html_schedule = schedule.formatmonth(user=self.request.user, withyear=True)
         context['calendar'] = mark_safe(html_schedule)
         return context
 
@@ -49,12 +51,14 @@ def next_month(d):
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
     return month
 
+@login_required
 def event(request, event_id=None):
-    instance = Event()
+    aut = request.user
+    instance = Event(author=aut)
     if event_id:
         instance = get_object_or_404(Event, pk=event_id)
     else:
-        instance = Event()
+        instance = Event(author=aut)
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and 'save' in request.POST and form.is_valid():
         form.save()

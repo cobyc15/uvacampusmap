@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 class Event(models.Model):
@@ -7,6 +8,7 @@ class Event(models.Model):
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    author = models.ForeignKey(User,on_delete=models.CASCADE,default=None,null=True)
     @property
     def get_html_url(self):
         url = reverse('schedule:event_edit', args=(self.id,))
