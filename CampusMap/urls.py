@@ -29,5 +29,6 @@ urlpatterns = [
     path('forum/', include('forum.urls')),
     path('myprofile/', views.ProfileView.as_view(), name='profile'),
     path('myprofile/', include('schedule.urls')),
+    path('forum/', include('CommunitySchedule.urls'))
     #path('accounts/logout', include('allauth.urls')),
 ]
