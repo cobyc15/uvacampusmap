@@ -8,6 +8,9 @@
 	<a class="btn btn-info right" href="{% url 'schedule:schedule' %}?{{ next_month }}"> Next Month </a>
 	<a class="btn btn-info right" href="{% url 'schedule:event_new' %}"> Enter Event </a>
 </div>
+<center>
+<h1>My Schedule</h1>
+</center>
 {{ calendar }}
 
 {% endblock %}
