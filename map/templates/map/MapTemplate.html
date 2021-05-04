@@ -71,12 +71,12 @@ map.on('click', function(e) {
   else{
     content='<h3>' + feature.properties.title + '</h3><p>' + feature.properties.address + '</p>';
   }
- 
+
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-   
+
     .setHTML(content)
-    
+
     .addTo(map);
 });
 
@@ -260,3 +260,9 @@ map.on('load', function() {
   </body>
 </html>
 {% endblock %}
+<!-- Mapbox
+Date made: 2010
+Code version 11
+Website program
+https://docs.mapbox.com/help/tutorials/getting-started-directions-api/
+ -->
