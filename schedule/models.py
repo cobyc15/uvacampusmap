@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
+    address = models.TextField(max_length=200, default="85 Engineer's Way, Charlottesville, VA 22903")
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()

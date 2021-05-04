@@ -68,4 +68,8 @@ def event(request, event_id=None):
         if event_id:
             Event.objects.filter(pk=event_id).delete()
             return HttpResponseRedirect(reverse('schedule:schedule'))
+    if request.POST and 'location' in request.POST:
+        if event_id:
+            event = Event.objects.filter(pk=event_id)
+            return HttpResponseRedirect(reverse('map:MapTemplate3'))
     return render(request, 'schedule/event.html', {'form': form})
