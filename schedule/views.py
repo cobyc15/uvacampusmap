@@ -70,15 +70,16 @@ def event(request, event_id=None):
             Event.objects.filter(pk=event_id).delete()
             return HttpResponseRedirect(reverse('schedule:schedule'))
     if request.POST and 'location' in request.POST:
-        address = request.POST.get('address')
-        str(address)
-        print(address)
-        geolocator = Nominatim(user_agent="schedule")
-        location = geolocator.geocode(str(address))
-        print(location.latitude)
-        print(location.longitude)
-        args = {}
-        args['lat'] = location.latitude
-        args['long'] = location.longitude
-        return render(request, 'map/MapTemplate3.html', args)
+        if event_id:
+            address = request.POST.get('address')
+            str(address)
+            print(address)
+            geolocator = Nominatim(user_agent="schedule")
+            location = geolocator.geocode(str(address))
+            print(location.latitude)
+            print(location.longitude)
+            args = {}
+            args['lat'] = location.latitude
+            args['long'] = location.longitude
+            return render(request, 'map/MapTemplate3.html', args)
     return render(request, 'schedule/event.html', {'form': form})
