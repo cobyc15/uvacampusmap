@@ -1,11 +1,11 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-
+from geopy.geocoders import Nominatim
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
-    address = models.TextField(max_length=200, default="85 Engineer's Way, Charlottesville, VA 22903")
+    address = models.CharField(max_length=200, default="1826 University Ave, Charlottesville")
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()

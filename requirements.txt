@@ -6,3 +6,4 @@ branca
 jinja2
 requests
 bootstrap4
+geopy

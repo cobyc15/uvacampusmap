@@ -1,7 +1,6 @@
 {% extends "./base.html" %}
 
 {% block content %}
-
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -39,15 +38,15 @@
     <div id='map'></div>
     <div id="instructions">  </div>
 
-
-
     <script>
+    var lat = "{{lat}}";
+    var long = "{{long}}";
     mapboxgl.accessToken = 'pk.eyJ1IjoiYmRuNGVmIiwiYSI6ImNrbXVhNnUybzBoY3kyd28ycHRtYXNiNWwifQ.YzHAdcSZGaN1qP37urA7ew'; // replace this with your access token
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/bdn4ef/ckn6t75lk0ncx17qqbhurgnl4', // replace this with your style URL
-      center: [-78.5080, 38.0336],
-      zoom: 12
+      center: [long, lat],
+      zoom: 18
     });
 
 // code from the next step will go here

@@ -13,6 +13,7 @@ from .forms import EventForm
 from .utils import Calendar
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.template.response import TemplateResponse
 
 def index(request):
     return HttpResponse('hello')
@@ -69,7 +70,15 @@ def event(request, event_id=None):
             Event.objects.filter(pk=event_id).delete()
             return HttpResponseRedirect(reverse('schedule:schedule'))
     if request.POST and 'location' in request.POST:
-        if event_id:
-            event = Event.objects.filter(pk=event_id)
-            return HttpResponseRedirect(reverse('map:MapTemplate3'))
+        address = request.POST.get('address')
+        str(address)
+        print(address)
+        geolocator = Nominatim(user_agent="schedule")
+        location = geolocator.geocode(str(address))
+        print(location.latitude)
+        print(location.longitude)
+        args = {}
+        args['lat'] = location.latitude
+        args['long'] = location.longitude
+        return render(request, 'map/MapTemplate3.html', args)
     return render(request, 'schedule/event.html', {'form': form})
