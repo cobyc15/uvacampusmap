@@ -28,8 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'hh0ds3yxsytsle8ry0-4&vlwu%i5*$c=b2&asi6@^4nsj_hnul'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-SESSION_COOKIE_SECURE = True
+DEBUG = True
+SESSION_COOKIE_SECURE = False
 
 ALLOWED_HOSTS = []
 
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'bootstrap4',
+    'events',
 
 ]
 
@@ -143,10 +144,10 @@ STATIC_URL = '/static/'
 )"""
 
 #Heroku SITE_ID
-SITE_ID = 3
+#SITE_ID = 3
 
 #Rj's SITE_ID
-#SITE_ID = 4
+SITE_ID = 4
 
 LOGIN_URL='/accounts/google/login'
 LOGIN_REDIRECT_URL = '/map/'
@@ -169,8 +170,8 @@ try:
     # Configure Django App for Heroku.
     import django_heroku
     #for local
-    #django_heroku.settings(locals())
+    django_heroku.settings(locals())
     #for Heroku
-    django_heroku.settings(locals(), test_runner=False)
+    #django_heroku.settings(locals(), test_runner=False)
 except ImportError:
     found = False
