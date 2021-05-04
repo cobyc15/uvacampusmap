@@ -13,12 +13,14 @@ from .forms import EventForm
 from .utils import Calendar
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from geopy.geocoders import Nominatim
 
 def index(request):
     return HttpResponse('hello')
 
-class CalendarView(generic.ListView):
+class CalendarView(LoginRequiredMixin, generic.ListView):
+    login_url = '/accounts/google/login'
     model = Event
     template_name = 'schedule/schedule.html'
     
