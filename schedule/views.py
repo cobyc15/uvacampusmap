@@ -13,7 +13,7 @@ from .forms import EventForm
 from .utils import Calendar
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.template.response import TemplateResponse
+from geopy.geocoders import Nominatim
 
 def index(request):
     return HttpResponse('hello')
@@ -72,14 +72,13 @@ def event(request, event_id=None):
     if request.POST and 'location' in request.POST:
         if event_id:
             address = request.POST.get('address')
-            str(address)
-            print(address)
-            geolocator = Nominatim(user_agent="schedule")
-            location = geolocator.geocode(str(address))
-            print(location.latitude)
-            print(location.longitude)
-            args = {}
-            args['lat'] = location.latitude
-            args['long'] = location.longitude
-            return render(request, 'map/MapTemplate3.html', args)
+            try:
+                geolocator = Nominatim(user_agent="schedule")
+                location = geolocator.geocode(str(address))
+                args = {}
+                args['lat'] = location.latitude
+                args['long'] = location.longitude
+                return render(request, 'map/MapTemplate3.html', args)
+            except:
+                return render(request, 'schedule/event.html', {'form': form})
     return render(request, 'schedule/event.html', {'form': form})

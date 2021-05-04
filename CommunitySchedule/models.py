@@ -3,6 +3,7 @@ from django.urls import reverse
 
 class CommunityEvent(models.Model):
     title = models.CharField(max_length=200)
+    address = models.CharField(max_length=200, default="1826 University Ave, Charlottesville")
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()

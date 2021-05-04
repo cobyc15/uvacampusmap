@@ -13,6 +13,7 @@ from .forms import EventForm
 from .utils import Calendar
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from geopy.geocoders import Nominatim
 
 def index(request):
     return HttpResponse('hello')
@@ -67,4 +68,16 @@ def communityevent(request, event_id=None):
         if event_id:
             CommunityEvent.objects.filter(pk=event_id).delete()
             return HttpResponseRedirect(reverse('CommunitySchedule:CommunitySchedule'))
+    if request.POST and 'location' in request.POST:
+        if event_id:
+            address = request.POST.get('address')
+            try:
+                geolocator = Nominatim(user_agent="schedule")
+                location = geolocator.geocode(str(address))
+                args = {}
+                args['lat'] = location.latitude
+                args['long'] = location.longitude
+                return render(request, 'map/MapTemplate3.html', args)
+            except:
+                return render(request, 'CommunitySchedule/event2.html', {'form': form})
     return render(request, 'CommunitySchedule/event2.html', {'form': form})
