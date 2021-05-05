@@ -1,2 +1,0 @@
-The license for our project will go here
-It will probably be an MIT License
