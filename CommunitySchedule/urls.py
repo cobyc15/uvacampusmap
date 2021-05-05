@@ -9,3 +9,8 @@ urlpatterns = [
     url(r'^event/new/$', views.communityevent, name='event_new'),
     url(r'^event/edit/(?P<event_id>\d+)/$', views.communityevent, name='event_edit'),
 ]
+
+# Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
