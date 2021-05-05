@@ -1,3 +1,7 @@
+# Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
 from datetime import datetime, timedelta
 from calendar import HTMLCalendar
 from .models import Event
@@ -39,7 +43,7 @@ class Calendar(HTMLCalendar):
 			schedule += f'{self.formatweek(week, events)}\n'
 		return schedule
 	
-	# Hui Wen
+# Hui Wen
 # Date made: 24 July 2018
 # Web browser Calendar source code
 # https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
