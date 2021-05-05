@@ -3,16 +3,21 @@
 {% block content %}
 {% load socialaccount %}
 
+<div class="container">
 <div class="clearfix">
+	<center>
 	<a class="btn btn-info left" href="{% url 'schedule:schedule' %}?{{ prev_month }}"> Previous Month </a>
 	<a class="btn btn-info right" href="{% url 'schedule:schedule' %}?{{ next_month }}"> Next Month </a>
 	<a class="btn btn-info right" href="{% url 'schedule:event_new' %}"> Enter Event </a>
+</center>
 </div>
 <center>
 <h1>My Schedule</h1>
+</tr>
 </center>
+<br>
 {{ calendar }}
-
+</div>
 {% endblock %}
 <!-- Hui Wen
 Date made: 24 July 2018

@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
+
 .navbar-custom{
   background-color: #232D4B;
   font-family: Montserrat !important;
@@ -12,7 +13,7 @@
 .navbar a{
   color: white;
   letter-spacing: 2px;
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 .navbar .dropdown-item{

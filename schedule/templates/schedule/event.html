@@ -6,21 +6,28 @@ Event
 {% load socialaccount %}
 
 {% block content %}
+<div class="container">
+  <br>
+  <center>
+  <h1>Create Event</h1>
+</center>
 <div class="clearfix">
-  <a class="btn btn-info left" href="{% url 'schedule:schedule' %}"> Schedule </a>
+  <a class="btn btn-info left" href="{% url 'schedule:schedule' %}"> Community Calender </a>
+  <form method="post">
+    {% csrf_token %}
+  <td colspan="2"><button type="submit" name="location" class="btn btn-info right">View Location</button></td>
 </div>
 
-<form method="post">
-  {% csrf_token %}
+
   <table class="form form-table">
     {{ form }}
     <tr>
+        <td colspan="2"><button type="submit" name="save" class="btn btn-success left">Save</button></td>
         <td colspan="2"><button type="submit" name="delete" class="btn btn-danger left">Delete</button></td>
-        <td colspan="2"><button type="submit" name="location" class="btn btn-info center">View Location</button></td>
-        <td colspan="2"><button type="submit" name="save" class="btn btn-success right">Save</button></td>
     </tr>
   </table>
 </form>
+</div>
 {% endblock %}
 <!-- Hui Wen
 Date made: 24 July 2018

@@ -73,12 +73,14 @@ def communityevent(request, event_id=None):
     if request.POST and 'location' in request.POST:
         if event_id:
             address = request.POST.get('address')
+            title = request.POST.get('title')
             try:
                 geolocator = Nominatim(user_agent="schedule")
                 location = geolocator.geocode(str(address))
                 args = {}
                 args['lat'] = location.latitude
                 args['long'] = location.longitude
+                args['title'] = title
                 return render(request, 'map/MapTemplate3.html', args)
             except:
                 return render(request, 'CommunitySchedule/event2.html', {'form': form})
