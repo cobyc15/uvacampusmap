@@ -2,7 +2,9 @@
 
 {% block content %}
 {% load socialaccount %}
-
+<center>
+<h1 class="top-buffer">My Schedule</h1>
+</center>
 <div class="container">
 <div class="clearfix">
 	<center>
@@ -11,11 +13,7 @@
 	<a class="btn btn-info right" href="{% url 'schedule:event_new' %}"> Enter Event </a>
 </center>
 </div>
-<center>
-<h1>My Schedule</h1>
-</tr>
-</center>
-<br>
+
 {{ calendar }}
 </div>
 {% endblock %}
