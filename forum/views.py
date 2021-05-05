@@ -6,15 +6,18 @@ import datetime
 from django import forms
 from .models import Post, Comment
 from schedule.models import Event
+from CommunitySchedule.models import CommunityEvent
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 
 
 @login_required
 def home(request):
-    latest_posts = Post.objects.order_by('-pub_date')[:5]
+    latest_posts = Post.objects.order_by('-pub_date')[:10]
+    latest_events = CommunityEvent.objects.filter(start_time__gte=datetime.datetime.now())[:10]
     context={
-        'latest_posts': latest_posts
+        'latest_posts': latest_posts,
+        'latest_events': latest_events
     }
     return render(request, 'forum/index.html', context)
 
