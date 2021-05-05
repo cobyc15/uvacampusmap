@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import generic
 from django.utils import timezone
+import datetime
 from django import forms
 from .models import Post, Comment
+from schedule.models import Event
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 
@@ -34,12 +36,26 @@ class DetailView(generic.DetailView):
 
 
 #@login_required(provi)
-class ProfileView(generic.ListView):
+class ProfileView(generic.ListView): 
     model = Post
-    context_object_name = 'my_posts'
+    context_object_name = 'profile_list'
     template_name = 'forum/MyProfile.html'
 
-    def get_queryset(self):
+    # reference: https://stackoverflow.com/questions/43847173/cannot-import-models-from-another-app-in-django
+    def get_context_data(self, **kwargs):
+        context = super(ProfileView, self).get_context_data(**kwargs)
+
+        qs = []
+        qs2 = []
+        if self.request.user.is_authenticated:
+            qs = self.model.objects.filter(author=self.request.user)
+            qs2 = Event.objects.filter(author=self.request.user, start_time__gte=datetime.datetime.now())[:5]
+        context['my_posts'] = qs
+        context['events'] = qs2    #Event.objects.all()
+
+        return context
+
+    """ def get_queryset(self):
         qs = []
         if self.request.user.is_authenticated:
             qs = self.model.objects.filter(author=self.request.user)
@@ -47,7 +63,7 @@ class ProfileView(generic.ListView):
             qs = []
         #list = Post.objects.filter(author=request.user)
         #return Post.objects.order_by('-pub_date')
-        return qs
+        return qs  """
 
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
