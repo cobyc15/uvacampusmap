@@ -1,3 +1,3 @@
-# project-b-04
+# UVA CS3240 Group B-04 Campus Map Project
 
-#Campus Map
+#Im testing to see how MD files work
