@@ -24,7 +24,16 @@
 </div>
 
 <div class="container">
-    <h2 class=display-6></h2>
+    <h2 class=display-6>Upcoming Community Events</h2>
+    {% if latest_events %}
+    <ul>
+    {% for event in latest_events %}
+        <li><a href=#>{{ event.title }} </a> - {{event.start_time}}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No events are available.</p>
+    {% endif %}  
 </div>
 
 

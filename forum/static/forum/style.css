@@ -1,6 +1,9 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
 
 /*entire website*/
+h1 {
+    font-family: Montserrat;
+}
 h2 {
     font-family: Montserrat;
     text-transform: uppercase;

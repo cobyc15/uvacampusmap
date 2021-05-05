@@ -23,12 +23,14 @@
       <a class="navbar-brand" href="/">UVA Grounds Guide</a>
       
       <!--left side of navbar-->
+      {% if user.is_authenticated %}
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a class="nav-link" href="/map/">Map</a></li>
           <li class="nav-item"><a class="nav-link" href="/forum/">Forum</a></li>
         </ul>
       </div>
+      {% endif %}
 
       <!--right side of navbar-->
       <!--dropdown tutorial: https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-dropdowns.php-->
