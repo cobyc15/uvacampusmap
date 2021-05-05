@@ -38,3 +38,7 @@ class Calendar(HTMLCalendar):
 		for week in self.monthdays2calendar(self.year, self.month):
 			schedule += f'{self.formatweek(week, events)}\n'
 		return schedule
+	# Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
