@@ -9,20 +9,26 @@
 {% if user.is_authenticated %}
 <div class="container-fluid">
   <div class="row">
-    <!--creating the sidebar profile page look-->
-    <div class="col-5">
+    <!--creating the sidebar-->
+    <div class="col-4">
       <!--this is where we'll put personal information-->
-      <h1 class=display-1>hello, {{user.username}}</h1>
-      <ul class="list-group">
-        <li class="list-group-item">Name: {{user.get_full_name }}</li>
-        <li class="list-group-item">Email: {{user.email}}</li>
-        <li class="list-group-item">Joined: {{user.date_joined}}</li>
-        
-      </ul>
+      <div class="card top-buffer" style="width: 18rem;">
+        <div class="card-body">
+          <h1 class="card-title">hello, {{user.username}}</h1>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Name: {{user.get_full_name}}</li>
+          <li class="list-group-item">Email: {{user.email}}</li>
+          <li class="list-group-item">Joined: {{user.date_joined}}</li>
+        </ul>
+        <div class="card-body mx-auto">
+          <a href="{% url 'schedule:schedule' %}" class="card-link">{{user.username}}'s schedule</a>
+        </div>
       
+      </div>
     </div>
 
-    <div class="col-7">
+    <div class="col-8">
       <!--this is where we'll put user activity stuff-->
       <div id="map">
         
