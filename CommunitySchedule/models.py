@@ -11,3 +11,7 @@ class CommunityEvent(models.Model):
     def get_html_url(self):
         url = reverse('CommunitySchedule:event_edit', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'
+# Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
