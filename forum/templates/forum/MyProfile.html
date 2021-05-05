@@ -35,7 +35,7 @@
         <div>
         {% if events %}
           {% for event in events %}
-            <li>{{event.title}} - {{event.start_time}} at {{event.address}}</li>
+            <li><a href="#">{{event.title}}</a> - {{event.start_time}} at {{event.address}}</li>
           {% endfor %}
         {% else %}
             <p>No events yet!</p>
