@@ -86,3 +86,7 @@ def event(request, event_id=None):
             except:
                 return render(request, 'schedule/event.html', {'form': form})
     return render(request, 'schedule/event.html', {'form': form})
+# Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
