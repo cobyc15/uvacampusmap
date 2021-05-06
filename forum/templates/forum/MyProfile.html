@@ -5,6 +5,22 @@
 {% load static %}
 {% load socialaccount %}
 
+<!--
+REFERENCES
+*  Title: Bootstrap
+*  Author: Mark Otto, Jacob Thornton
+*  Date: 5/4/2021
+*  Code version: 4.6.0
+*  URL: https://github.com/twbs/bootstrap#status
+*  Software License: MIT License
+
+*  Title: Writing your first Django app
+*  Author: Django Software Foundation
+*  Date: 5/4/2021
+*  Code version: 3.2
+*  URL: https://docs.djangoproject.com/en/3.2/intro/tutorial03/
+*  Software License: BSD-3
+-->
 
 {% if user.is_authenticated %}
 <div class="container-fluid">
@@ -12,7 +28,7 @@
     <!--creating the sidebar-->
     <div class="col-4">
       <!--this is where we'll put personal information-->
-      <div class="card top-buffer" style="width: 18rem;">
+      <div class="card top-buffer">
         <div class="card-body">
           <h1 class="card-title display-4 justify-content-center">hello, {{user.username}}</h1>
         </div>
@@ -35,7 +51,7 @@
         <div>
         {% if events %}
           {% for event in events %}
-            <li><a href="#">{{event.title}}</a> - {{event.start_time}} at {{event.address}}</li>
+            <li><a href="{% url 'schedule:event_edit' event.id %}">{{event.title}}</a> - {{event.start_time}} at {{event.address}}</li>
           {% endfor %}
         {% else %}
             <p>No events yet!</p>
@@ -48,7 +64,29 @@
         <div>
         {% if my_posts %}
           {% for post in my_posts %}
-            <li><a href="/forum/{{ post.id }}/">{{ post.title }}</a> - posted {{post.pub_date}} <a class="btn btn-default" href="{% url 'forum:post_remove' pk=post.pk %}"><span class="btn btn-danger left">Delete</span></a></li>
+            <!--confirm delete modal (hidden until prompted)-->
+            <div class="modal" tabindex="-1" role="dialog" id="confirm-delete">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>You are about to delete this item. This action cannot be undone. Proceed anyways?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-default" href="{% url 'forum:post_remove' pk=post.pk %}"><span class="btn btn-danger left">Delete</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <li><a href="/forum/{{ post.id }}/">{{ post.title }}</a> - posted {{post.pub_date}}
+              <a class="btn btn-default" href="#"><span class="btn btn-danger left" data-toggle="modal" data-target="#confirm-delete">Delete</span></a>
           {% endfor %}
         {% else %}
             <p>No posts yet!</p>
@@ -56,9 +94,7 @@
         </div>
       </div>
 
-      <!--<div id="schedule" class="top-buffer">
-        <h2><a href="{% url 'schedule:schedule' %}">View Schedule</a></h2>
-      </div>-->
+      
 
     </div>
   </div>

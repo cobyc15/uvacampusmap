@@ -1,3 +1,22 @@
+"""
+REFERENCES
+*  Title: Writing your first Django app
+*  Author: Django Software Foundation
+*  Accessed Date: 5/4/2021
+*  Code version: 3.2
+*  URL: https://docs.djangoproject.com/en/3.2/intro/tutorial03/
+
+*  Title: Django filter events occurring today
+*  Author: Kristian Glass
+*  Date: 6/29/2012
+*  URL: https://stackoverflow.com/questions/11245483/django-filter-events-occurring-today
+
+*  Title: How can I include multiple querysets in a django view?
+*  Author: Sardorbek Imomaliev
+*  Date: 10/7/2016
+*  URL: https://stackoverflow.com/questions/39883849/how-can-i-include-multiple-querysets-in-a-django-view
+
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import generic
@@ -38,7 +57,6 @@ class DetailView(generic.DetailView):
     #comments = post.comments
 
 
-#@login_required(provi)
 class ProfileView(generic.ListView): 
     model = Post
     context_object_name = 'profile_list'
