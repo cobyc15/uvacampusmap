@@ -3,6 +3,9 @@
 {% block content %}
 {% load socialaccount %}
 
+<center>
+<h1>Community Calendar</h2>
+</center>
 <div class="container">
 <div class="clearfix">
 	<a class="btn btn-info left" href="{% url 'CommunitySchedule:CommunitySchedule' %}?{{ prev_month }}"> Previous Month </a>
@@ -10,9 +13,7 @@
 	<a class="btn btn-info right" href="{% url 'CommunitySchedule:event_new' %}"> Enter Event </a>
 
 </div>
-<center>
-<h1>Community Calendar</h2>
-</center>
+
 <br>
 {{ calendar }}
 

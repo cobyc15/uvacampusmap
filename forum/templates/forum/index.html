@@ -28,7 +28,7 @@
     {% if latest_events %}
     <ul>
     {% for event in latest_events %}
-        <li><a href=#>{{ event.title }} </a> - {{event.start_time}}</li>
+        <li><a href="{% url 'CommunitySchedule:event_edit' event.id %}">{{ event.title }} </a> - {{event.start_time}}</li>
     {% endfor %}
     </ul>
     {% else %}
