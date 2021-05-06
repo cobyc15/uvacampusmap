@@ -1,3 +1,7 @@
+# Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
 from datetime import timedelta
 from datetime import date
 import calendar
@@ -85,3 +89,8 @@ def communityevent(request, event_id=None):
             except:
                 return render(request, 'CommunitySchedule/event2.html', {'form': form})
     return render(request, 'CommunitySchedule/event2.html', {'form': form})
+
+# Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 

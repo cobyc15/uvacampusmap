@@ -1,3 +1,7 @@
+# Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -14,3 +18,8 @@ class Event(models.Model):
     def get_html_url(self):
         url = reverse('schedule:event_edit', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'
+    
+    # Hui Wen
+# Date made: 24 July 2018
+# Web browser Calendar source code
+# https://www.huiwenteo.com/normal/2018/07/24/django-calendar.html 
