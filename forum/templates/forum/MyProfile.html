@@ -5,6 +5,22 @@
 {% load static %}
 {% load socialaccount %}
 
+<!--
+REFERENCES
+*  Title: Bootstrap
+*  Author: Mark Otto, Jacob Thornton
+*  Date: 5/4/2021
+*  Code version: 4.6.0
+*  URL: https://github.com/twbs/bootstrap#status
+*  Software License: MIT License
+
+*  Title: Writing your first Django app
+*  Author: Django Software Foundation
+*  Date: 5/4/2021
+*  Code version: 3.2
+*  URL: https://docs.djangoproject.com/en/3.2/intro/tutorial03/
+*  Software License: BSD-3
+-->
 
 {% if user.is_authenticated %}
 <div class="container-fluid">
@@ -12,7 +28,7 @@
     <!--creating the sidebar-->
     <div class="col-4">
       <!--this is where we'll put personal information-->
-      <div class="card top-buffer" style="width: 18rem;">
+      <div class="card top-buffer">
         <div class="card-body">
           <h1 class="card-title display-4 justify-content-center">hello, {{user.username}}</h1>
         </div>

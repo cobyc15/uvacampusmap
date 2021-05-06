@@ -1,3 +1,11 @@
+"""
+REFERENCES
+*  Title: Writing your first Django app
+*  Author: Django Software Foundation
+*  Date: 5/4/2021
+*  Code version: 3.2
+*  URL: https://docs.djangoproject.com/en/3.2/intro/tutorial03/
+"""
 from django.test import TestCase
 from django.utils import timezone
 
