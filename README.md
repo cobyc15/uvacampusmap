@@ -13,7 +13,7 @@ Implemented using the MapBox API, this feature is meant to help users find locat
 Once logged in, users can use the Forum feature to discuss their experiences with locations on Grounds and any potential difficulties finding or navigating them, or anything else they want to share. They can view posts already made by just their title, read their contents by clicking on them, or make a post of their own by clicking the "New Post" button. Posts each have a timestamp of when they were made as well as the author of the post that can be seen when they are expanded. Additionally, events that are affecting all users are displayed in the Calendar tab of this page, and can be seen either on this calendar page or on the "Home" page of the Forum if one is upcoming. 
 
 ### Personal Profile and Schedule
-Using the navigation bar, users can also view information about their own profile. They can see what their name is to other users if they were to post to the Forum, the email used for login, and when they first started using the site. Users each have their own schedule that only they can see and add events to. They can add events such as their classes and include information such as the title, time, location, and description of the event. When doing so, they can consult the Community Calendar directly or see the location of the event that they are adding to check. From here, if a user has added events to their personal calendar or made posts to the Forum, they will be able to see these on their profile page and the additionally information they added when making the post or event.
+Using the navigation bar, users can also view information about their own profile. They can see what their name is to other users if they were to post to the Forum, the email used for login, and when they first started using the site. Users each have their own schedule that only they can see and add events to. They can add events such as their classes and include information such as the title, time, location, and description of the event. When doing so, they can consult the Community Calendar directly or see the location of the event that they are adding to check. From here, if a user has added events to their personal calendar or made posts to the Forum, they will be able to see these on their profile page and the personal information they added when making the post or event.
 
 ## Group Members
 * Scrum Master: Ramie Katan
@@ -21,3 +21,6 @@ Using the navigation bar, users can also view information about their own profil
 * Testing Manager: Alan Phlips
 * DevOps Manager: Matthew Gerace
 * UX Designer: Coby Chiu
+
+# Image of Rotunda Citation
+https://news.virginia.edu/content/viewfinder-student-captures-fresh-looks-familiar-landscapes
